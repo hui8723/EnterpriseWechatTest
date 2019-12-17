@@ -11,12 +11,16 @@ public class BasePage {
     public static WebDriver driver;
 
     public WebElement findElement(By by) {
-        return findElement(by,5);
+        return findElement(by,10);
+    }
+
+    public WebElement findInput(By by) {
+        return findElement(by,0);
     }
 
     public WebElement findElement(By by,int timeout) {
         System.out.println(by);
-        if (timeout != 0) {
+        if (timeout > 0) {
             waitClickable(by, timeout);
         }
         return driver.findElement(by);
@@ -29,6 +33,14 @@ public class BasePage {
     public void waitClickable(By by,int timeout) {
         new WebDriverWait(driver,timeout).until(ExpectedConditions.visibilityOfElementLocated(by));
         new WebDriverWait(driver,timeout).until(ExpectedConditions.elementToBeClickable(by));
+    }
+
+    public void sleep(long second) {
+        try {
+            Thread.sleep(second * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void quit() throws InterruptedException {

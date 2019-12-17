@@ -26,14 +26,13 @@ public class Web extends BasePage{
         driver.manage().window().maximize();
         driver.findElement(By.linkText("企业登录")).click();
         driver.manage().addCookie(new Cookie("wwrtx.refid","3300316855743240"));
-        driver.manage().addCookie(new Cookie("wwrtx.sid","gdkdzt44z4BQ7RBFWf9humUFxuVuSaB5_8qNjF8U3QxmsqLA1ElPhCONN_LmsKhR"));
+        driver.manage().addCookie(new Cookie("wwrtx.sid","gdkdzt44z4BQ7RBFWf9huhXC-HWz1lhIEeIMWml2lBepggNHhhvKmLuzI4h0e8cL"));
         driver.navigate().refresh();
     }
 
 
     public ContactPage toContact() {
         findElement(By.linkText("通讯录")).click();
-        waitClickable(By.linkText("组织架构"),8);
         return new ContactPage();
     }
 
@@ -42,8 +41,8 @@ public class Web extends BasePage{
         return new ContactPage();
     }
 
-    public AppManagerPage toAppManager() {
-        findElement(By.linkText("应用管理")).click();
+    public AppManagerPage toManagerTools() {
+        findElement(By.linkText("管理工具")).click();
         return new AppManagerPage();
     }
 
