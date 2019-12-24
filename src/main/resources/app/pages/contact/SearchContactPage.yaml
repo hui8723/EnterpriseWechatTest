@@ -1,0 +1,7 @@
+methods:
+  search_step:
+    steps:
+      - id: "com.tencent.wework:id/ect"
+        clear: ""
+      - id: "com.tencent.wework:id/ect"
+        send: ${searchContent}

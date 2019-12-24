@@ -8,6 +8,7 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
@@ -36,6 +37,7 @@ public class App extends BasePage {
         desiredCapabilities.setCapability("appActivity", ".launch.AppSchemeLaunchActivity");
 //        desiredCapabilities.setCapability("noReset", true);
         desiredCapabilities.setCapability("noReset", false);
+        desiredCapabilities.setCapability("unicodeKeyboard",true);
 //        自动给app付权限
         desiredCapabilities.setCapability("autoGrantPermissions", true);
         desiredCapabilities.setCapability("udid", System.getenv("UDID"));
@@ -63,6 +65,8 @@ public class App extends BasePage {
     public App toMain() {
         click(By.id("com.tencent.wework:id/sz"));
         click(By.id("com.tencent.wework:id/be1"));
+        new WebDriverWait(driver,20)
+                .until(ExpectedConditions.elementToBeClickable(By.id("com.tencent.wework:id/f_w")));
         return this;
     }
 
