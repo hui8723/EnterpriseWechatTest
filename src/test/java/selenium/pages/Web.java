@@ -19,14 +19,14 @@ public class Web extends BasePage{
 * */
 //        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
 
-        /*需把chrome driver放置于系统环境变量中*/
+        /*需把chrome driver放置于系统环境变量中。mac电脑：/usr/local/bin*/
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get(url);
         driver.manage().window().maximize();
         driver.findElement(By.linkText("企业登录")).click();
-        driver.manage().addCookie(new Cookie("wwrtx.refid","3300316855743240"));
-        driver.manage().addCookie(new Cookie("wwrtx.sid","gdkdzt44z4BQ7RBFWf9huhXC-HWz1lhIEeIMWml2lBepggNHhhvKmLuzI4h0e8cL"));
+        driver.manage().addCookie(new Cookie("wwrtx.refid","27998153882456164"));
+        driver.manage().addCookie(new Cookie("wwrtx.sid","gdkdzt44z4BQ7RBFWf9hulURnN32JftcAoVnZu-YTV0enmsCGlQO4AGitFbwv4ZP"));
         driver.navigate().refresh();
     }
 
